@@ -1,0 +1,129 @@
+TextInput PROPERTIES
+	readonly = BooleanProperty(False)
+	text_validate_unfocus = BooleanProperty(True)
+	multiline = BooleanProperty(True)
+	do_wrap = BooleanProperty(True)
+	password = BooleanProperty(False)
+	password_mask = StringProperty('*')
+	cursor_blink = BooleanProperty(True)
+	cursor = AliasProperty(_get_cursor, _set_cursor)
+	cursor_col = AliasProperty(_get_cursor_col, None, bind = ('cursor', ))
+	cursor_row = AliasProperty(_get_cursor_row, None, bind = ('cursor', ))
+	cursor_pos = AliasProperty(_get_cursor_pos, None, bind = ('cursor', 'padding', 'pos', 'size', 'focus',
+										'scroll_x', 'scroll_y', 'line_height', 'line_spacing'), cache = False)
+	cursor_color = ColorProperty([1, 0, 0, 1])
+	cursor_width = NumericProperty('1sp')
+	line_height = NumericProperty(1) ## has no affect
+	tab_width = NumericProperty(4)
+	padding = VariableListProperty([6, 6, 6, 6]) ## left, top, right, bottom (also: h, v)
+	halign = OptionProperty('auto', options=['left', 'center', 'right', 'auto'])
+	scroll_x = NumericProperty(0)
+	scroll_y = NumericProperty(0)
+	selection_color = ColorProperty([0.1843, 0.6549, 0.8313, .5])
+	border = ListProperty([4, 4, 4, 4]) ## bottom, right, top, left
+	background_normal = StringProperty('atlas://data/images/defaulttheme/textinput')
+	background_disabled_normal = StringProperty('atlas://data/images/defaulttheme/textinput_disabled')
+	background_active = StringProperty('atlas://data/images/defaulttheme/textinput_active')
+	background_color = ColorProperty([1, 1, 1, 1]) ## (r, g, b, a)
+	foreground_color = ColorProperty([0, 0, 0, 1]) ## (r, g, b, a)
+	disabled_foreground_color = ColorProperty([0, 0, 0, .5]) ## (r, g, b, a)
+	use_bubble = BooleanProperty(not _is_desktop) ## whether the cut/copy/paste bubble is used.
+	use_handles = BooleanProperty(not _is_desktop) ## whether the selection handles are displayed.
+	scroll_from_swipe = BooleanProperty(not _is_desktop) ## swipe gesture scrolls the text
+	scroll_distance = NumericProperty(_scroll_distance) ## Minimum distance to move before scroll
+																		 ## becomes selection mode, in pixels.
+	scroll_timeout = NumericProperty(_scroll_timeout) ## if no user input scroll mode becomes selection mode
+	selection_from = AliasProperty(get_sel_from, None) ## cursor index where the selection starts
+	selection_to = AliasProperty(get_sel_to, None) ## cursor index where the selection starts
+	selection_text = StringProperty(u'')
+	text = AliasProperty(_get_text, _set_text, bind=('_lines',), cache=True)
+	font_name = StringProperty(DEFAULT_FONT)
+	font_size = NumericProperty('15sp')
+	font_context = StringProperty(None, allownone=True)
+	font_family = StringProperty(None, allownone=True)
+	base_direction = OptionProperty(None, options = ['ltr', 'rtl', 'weak_rtl', 'weak_ltr', None], allownone = True)
+	text_language = StringProperty(None, allownone = True)
+	hint_text = AliasProperty(_get_hint_text, _set_hint_text, bind = ('_hint_text', ))
+	hint_text_color = ColorProperty([0.5, 0.5, 0.5, 1.0])
+	auto_indent = BooleanProperty(False)
+	replace_crlf = BooleanProperty(True)
+	allow_copy = BooleanProperty(True)
+	minimum_height = AliasProperty(_get_min_height, bind=( '_lines', 'line_spacing', 'padding', 'font_size',
+											'font_name', 'password', 'font_context', 'hint_text', 'line_height'), cache=True)
+	line_spacing = NumericProperty(0)
+	input_filter = ObjectProperty(None, allownone=True)
+	handle_image_middle = StringProperty(
+	handle_image_left = StringProperty('atlas://data/images/defaulttheme/selector_left')
+	handle_image_right = StringProperty('atlas://data/images/defaulttheme/selector_right')
+	write_tab = BooleanProperty(True)
+(inherited from Widget)
+	canvas = None
+	center = ReferenceListProperty(center_x, center_y)
+	center_x = AliasProperty(get_center_x, set_center_x, bind=('x', 'width'), cache=True, watch_before_use=False)
+	center_y = AliasProperty(get_center_y, set_center_y, bind = ('y', 'height'), cache = True, watch_before_use = False)
+	children = ListProperty([])
+	cls = ListProperty([])
+	disabled = AliasProperty(get_disabled, set_disabled, watch_before_use=False)
+	height = NumericProperty(100)
+	ids = DictProperty({})
+	motion_filter = DictProperty()
+	opacity = NumericProperty(1.0)
+	parent = ObjectProperty(None, allownone = True, rebind = True)
+	pos = ReferenceListProperty(x, y)
+	pos_hint = ObjectProperty({})
+	right = AliasProperty(get_right, set_right, bind=('x', 'width'), cache=True, watch_before_use=False)
+	size = ReferenceListProperty(width, height)
+	size_hint = ReferenceListProperty(size_hint_x, size_hint_y)
+	size_hint_max = NumericProperty(None, allownone = True)
+	size_hint_max_x = NumericProperty(None, allownone = True)
+	size_hint_max_y = NumericProperty(None, allownone = True)
+	size_hint_min = ReferenceListProperty(size_hint_min_x, size_hint_min_y)
+	size_hint_min_x = NumericProperty(None, allownone = True)
+	size_hint_min_y = NumericProperty(None, allownone = True)
+	size_hint_x = NumericProperty(1, allownone = True)
+	size_hint_y = NumericProperty(1, allownone = True)
+	top = AliasProperty(get_top, set_top, bind=('y', 'height'), cache=True, watch_before_use=False)
+	width = NumericProperty(100)
+	x = NumericProperty(0)
+	y = NumericProperty(0)
+
+TextInput Events
+	on_text_validate
+	on_double_tap
+	on_triple_tap
+	on_quad_touch
+	on_touch_down
+	on_touch_up
+	
+(inherited from Widget)
+	on_motion
+	on_touch_down
+	on_touch_move
+	on_touch_up
+	on_kv_post
+TextInput Methods
+	cursor_offset(self)
+	get_cursor_from_index(self, index)
+	select_text(self, start, end)
+	select_all(self)
+	insert_text(self, substring, from_undo = False)
+	reset_undo(self)
+	do_redo(self)
+	do_undo(self)
+	do_backspace(self, from_undo = False, mode = 'bkspc')
+	pgmove_speed(self) ## distance to move on PgDn
+	do_cursor_movement(self, action, control = False, alt = False)
+	get_cursor_from_xy(self, x, y)
+	cancel_selection(self)
+	delete_selection(self, from_undo = False)
+	long_touch(self, dt)
+	cancel_long_touch_event(self)
+	on_double_tap(self)
+	on_touch_down(self, touch)
+	on_touch_up(self, touch)
+	scroll_text_from_swipe(self, touch)
+	
+	on_triple_tap(self)
+	on_quad_touch(self)
+	
+	

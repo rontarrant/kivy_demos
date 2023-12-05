@@ -1,0 +1,36 @@
+<MyBoxLayout>:
+	orientation:'horizontal'
+	BoxLayout:
+		orientation:'horizontal'
+		StackLayout:
+			size_hint_x: 70
+			orientation:'tb-rl'
+			canvas:
+				Color:
+					rgb: [.3, .320, .380]
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			Button:
+				id:current_temperature
+				#text: root.display_current_temperature()
+				text: 'temperature'
+				font_size:20
+				size_hint: [None, None]
+				size:[200,50]
+			Button:
+				id:current_location
+				#text: root.display_location()
+				text: "location"
+				font_size:15
+				size_hint: [None, None]
+				size:[200,50]
+		BoxLayout:
+			size_hint_x: 30
+			orientation: 'vertical'
+			Button:
+				id:test
+				text: 'weather icon'
+				size_hint: [None, None]
+				size:[100,100]
+			Label:

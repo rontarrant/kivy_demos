@@ -1,0 +1,31 @@
+## This demostrates how (and why) to import
+## a .py script into a .kv file. With custom classes
+## defined in r10_class_definitions, we can better organize
+## our code. Our call to Builder.load_file() doesn't have to
+## follow custom class definitions in the main .py file because
+## those definitions have been moved to their own file.
+##
+## This is what these import statements would look like in Python:
+##		from r06_class_definitions import RootObj
+##		from r06_class_definitions import MyButton
+##
+## NOTE: Unlike in Python where multiple modules can be comma-separated
+## and imported all in one statement, only one module can be named per statement.
+
+#:import RootObj custom.r10_rootobj_definition
+#:import MyButton r10_mybutton_definition
+
+RootObj:
+
+<RootObj>:
+	BoxLayout:
+		MyButton:
+			text: "one"
+		MyButton:
+			text: "two"
+		MyButton:
+			text: "three"
+
+<MyButton>:
+	background_color: (1, 0, 0, 1)
+	text: "abutton"

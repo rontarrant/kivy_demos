@@ -1,0 +1,14 @@
+## ti05_textinput_read_only.kv
+## The cursor can be placed within the TextInput widget and
+## moved around. Also, the text can be selected, but
+## no typing is allowed.
+
+<TextInput>:
+	text: "Hello, Darkness, my old friend..."
+	multiline: True
+	hint_text: "Type some lyrics..."
+	halign: 'right'
+	valign: 'bottom'
+	size: (sp(800), sp(40))
+	size_hint: (None, None)
+	readonly: True

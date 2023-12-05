@@ -1,0 +1,17 @@
+## Conditional command connected to an event.
+
+MyButton:
+
+<MyButton@Button>:
+	text: "Push Me, Baby"
+	italic: True
+	font_size: 60
+	on_press:
+		if self.font_size < 70: print("This button text is SO BIG!")
+		self.font_size = 100
+		self.text = "You Pushed Me!"
+	on_release:
+		self.font_size = 60
+		self.text = "Push Me, Baby"
+		print("No, it's not.")
+

@@ -1,0 +1,27 @@
+## zorn.kv
+#:import colours common_colours_rgb
+
+<ZornGridLayout>:
+	row_force_default: True
+	row_default_height: '100dp'
+	minimum_height: '600dp'
+	padding: 5, 5, 5, 5
+	rows: 6
+	
+	Button:
+		text: "Save"
+	
+	Label:
+		text: ""
+		
+	Spinner:
+		id: top_colour_01
+		on_text: root.spinner_clicked(top_colour_01.text)
+		text: Colour 1
+		values: colours.CommomColoursRGB
+		size_hint: None, None
+		size: 200, 50
+		pos_hint: {'x': 0, 'top': 1}
+	
+	Label:
+		text: ""

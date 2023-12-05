@@ -1,0 +1,30 @@
+## Example of realigning text on a button.
+##
+## Just setting halign/valign won't be enough.
+## By default, Kivy sets text_size to the size of
+## the actual text, not the widget containing the
+## text. To get text to move toward any edge of 
+## the widget, change the widget's text_size property
+## to match the size of the widget (text_size: self.size).
+## To get padding between the edge of the widget and
+## the text, use self.width and self.height and subtract
+## a bit where you want the padding (see below).
+## Usually, text_size is set to self.size,
+## but in this case, I wanted the width
+## a bit smaller so the text isn't right
+## up against the edge of the button.
+
+MyButton:
+
+<MyButton@Button>:
+	text: "Push Me, Baby"
+	on_release: print("Give it to me, baby!")
+	italic: True
+	font_size: 60
+	text_size: (self.width - 40, self.height)
+	halign: "right"
+	valign: "middle"
+	color: [126/255, 45/255, 210/255, 1]
+	background_color: [130/255, 180/255, 10/255, 1]
+	background_normal: ""
+

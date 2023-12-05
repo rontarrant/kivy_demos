@@ -1,0 +1,89 @@
+## Reproduction of a Tic Tac Toe game Screen
+<MyBoxLayout>: ## outer box - vertical
+	orientation: "vertical"
+	spacing: 20
+	padding: 20
+
+	BoxLayout: ## top inner box - horizontal
+		orientation: 'horizontal'
+		size_hint_y: None
+		height: "64dp"
+	
+		BoxLayout: ## player X box - vertical
+			orientation: 'vertical'
+			
+			Label:
+				text: "Player X"
+				font_size: 32
+			Label:
+				text: "0"
+				font_size: 32
+
+		BoxLayout: ## player Y box - vertical
+			orientation: 'vertical'
+			
+			Label:
+				text: "Player Y"
+				font_size: 32
+			Label:
+				text: "0"
+				font_size: 32
+	
+	GridLayout: ## bottom inner box
+		rows: 3
+		spacing: 10
+		
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)
+		Button:
+			id: my_button
+			text: " "
+			font_size: 50
+			size_hint: 1, 1
+			on_release: root.release(self)

@@ -1,0 +1,30 @@
+## Demo of right-aligned Label
+## The only thing needed is to set the pos_hint
+## property. Arguments take dictionary form.
+## In this case, we set 'right' to '1' so
+## the Label is pushed right up against the right
+## side of the BoxLayout (parent), less the padding.
+<MyBoxLayout>:
+	orientation: "vertical"
+	spacing: 20
+	padding: 20
+	size: root.width, root.height ## this makes no difference
+
+	Label:
+		id: my_label
+		text: "Here's a label"
+		font_size: 32
+		size_hint: .5, 1
+		pos_hint: {'right': 1}
+		canvas.before:
+			Color:
+				rgba: 0, 0, 1, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+	Button:
+		id: my_button
+		text: "Next Label"
+		font_size: 32
+		size_hint: 1, 1
+		on_release: root.release()

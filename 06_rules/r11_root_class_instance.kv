@@ -1,0 +1,35 @@
+## Declare all classes and custom classes - with inheritance
+## - into this .kv file.
+
+<MyGrid@GridLayout>:
+	new_property: ""
+
+<MyButton@Button>
+	size: 200, 200
+
+<TopLevel@MyGrid>
+	new_property: "Hello"
+
+<MyLabel@Label>:
+
+TopLevel:
+	cols: 4
+	padding: 10, 10, 20, 10
+	background_color: (.3, .3, .3, 1)
+
+	MyButton:
+		text: "one"
+		background_color: (1, 0, 0, 1)
+		on_press: print("one")
+	MyButton:
+		text: "two"
+		background_color: (1, 0, 0, 1)
+		on_press: print("two")
+	MyButton:
+		text: "three"
+		background_color: (1, 0, 0, 1)
+		on_press: print("three")
+	MyLabel:
+		text: root.new_property
+		background_color: (1, 0, 0, 1)
+		size: 200, 200

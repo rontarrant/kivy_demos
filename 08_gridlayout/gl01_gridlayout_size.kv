@@ -1,0 +1,42 @@
+<MyBoxLayout>:
+
+	GridLayout:
+		force_default_height: True
+		row_default_height: '300dp'
+		height: 800
+		minimum_height: 300
+		padding: 10, 10, 10, 10
+		rows: 2
+
+		Label:
+			text: "400 pixels high"
+			font_size: 32
+		
+		Button:
+			text: "400 pixels wide"
+			font_size: 32
+			on_release: root.release()
+	GridLayout:
+		force_default_width: True
+		row_default_width: 200
+		minimum_width: 300
+		width: 400
+		padding: 10, 10, 10, 10
+		cols: 2
+
+		Label:
+			canvas:
+				Line:
+					rectangle: self.x, self.y, self.width, self.height
+					width: 2
+			outline_color: [1, 1, 0, 1]
+			outline_width: 2
+			text: "200\npixels\nhigh"
+			color: [0, 1, 0, 1]
+			font_size: 32
+			padding: 20, 20
+		
+		Button:
+			text: "200\npixels\nwide"
+			font_size: 32
+			on_release: root.release()

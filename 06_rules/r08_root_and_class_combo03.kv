@@ -1,0 +1,24 @@
+## The root rule defining RootObj works because we define it
+## using a class rule below.
+## NOTE the absence of any detail in the root rule.
+RootObj:
+	cols: 4
+	
+<RootObj>:
+	padding: 10, 10, 20, 10
+	background_color: (.3, .3, .3, 1)
+
+	MyButton:
+		text: "one"
+	MyButton:
+	MyButton:
+	MyLabel:
+	
+<MyButton>:
+	background_color: (1, 0, 0, 1)
+	text: "button"
+	size: 200, 200
+
+<MyLabel>:
+	text: "Label"
+	size: 200, 200

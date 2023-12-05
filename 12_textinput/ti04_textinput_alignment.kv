@@ -1,0 +1,12 @@
+## ti04_textinput_alignment.kv
+## The alignment set is for the widget's text and
+## doesn't affect the widget's alignment within its parent.
+
+<TextInput>:
+	text: "Hello, Darkness, my old friend..."
+	multiline: True
+	hint_text: "Type some lyrics..."
+	halign: 'right'
+	valign: 'bottom'
+	size: (sp(800), sp(40))
+	size_hint: (None, None)

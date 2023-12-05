@@ -1,0 +1,29 @@
+## Demo of placing a Label that's half the size
+## of the BoxLayout. All that's needed is to 
+## set a size_hint for Label as seen below.
+##
+## This is also a demo of left-aligning a half-sized
+## Label. Since this is the default, no action is needed.
+<MyBoxLayout>:
+	orientation: "vertical"
+	spacing: 20
+	padding: 20
+	##size: root.width, root.height
+
+	Label:
+		id: my_label
+		text: "Here's a label"
+		font_size: 32
+		size_hint: .5, 1
+		canvas.before:
+			Color:
+				rgba: 0, 0, 1, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+	Button:
+		id: my_button
+		text: "Next Label"
+		font_size: 32
+		size_hint: (1, 1)
+		on_release: root.release()

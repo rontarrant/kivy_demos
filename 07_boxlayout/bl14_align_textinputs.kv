@@ -1,0 +1,60 @@
+## Align three TextInput's to the right.
+
+<MyBoxLayout>: ## outer box - vertical
+	orientation: "vertical"
+	spacing: 10
+	padding: 40
+	
+	canvas.before:
+		Rectangle:
+			size: self.size
+			source: "images/background01.png"
+
+	BoxLayout:
+		orientation: "vertical"
+		spacing: 10
+		pos_hint: {'right': 1, 'top': 0.1}
+		## padding is left, top, right, bottom
+		
+		## The next line can also be used in place of the
+		## blank Label widget (see below) to force the
+		## entire layout to the top of the window.
+		## Uncomment the padding and comment out the Label
+		## to see how that works.
+		##padding: 0, 0, 0, 840
+		size: root.size
+
+		TextInput:
+			text: "Something"
+			size_hint_x: None
+			width: '400dp'
+			size_hint_y: None
+			height: '30dp'
+			pos_hint: {'right': 1, 'top': 1}
+			halign: 'right'
+
+		TextInput:
+			text: "About"
+			size_hint_x: None
+			width: '400dp'
+			size_hint_y: None
+			height: '30dp'
+			pos_hint: {'right': 1, 'top': 1}
+			halign: 'right'
+
+		TextInput:
+			text: "That Guy"
+			size_hint_x: None
+			width: '400dp'
+			size_hint_y: None
+			height: '30dp'
+			pos_hint: {'right': 1, 'top': 1}
+			halign: 'right'
+
+		## This widget is empty, but because all other widgets
+		## have exact sizes, this one fills all the space below
+		## them, thus pushing the three TextInput's to the top
+		## of the window. Without this empty widget, this code
+		## results in what looks like a bottom-aligned layout.
+		Label:
+			

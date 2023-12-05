@@ -1,0 +1,61 @@
+# example 1-7 Setting widget sizes on AddLocationForm
+## This is a reconstruction of Example 1-7 from the O'Reilly
+## book, "Creating Apps in Kivy (2014)". Because ListView
+## is deprecated, I've substituted a ScrollView. To simplify,
+## I've stuffed a populated BoxLayout into the ScrollView.
+##
+## General Notes on Layout
+##
+## To stop widgets from using all the available space,
+## we need to do two things:
+## 1) turn off size_hint'ing for either x, y, or both,
+## 2) set a specific height, width, or both, and
+## 3) Then decide what percentage of the available area
+##    we want each item/row/column to take up.
+##
+## Row 1 and Row 2 both have explicitly-set heights. This allows
+## Row 3—which doesn't have an explicitly-set height—to
+## expand to take up all the rest of the available height.
+## Note:
+## Widths are all controled by relative size hints in the
+## x direction. In Row 1 and Row 3, the widths of the Buttons
+## are all set to 25 (implying 25%) while the TextInputs
+## are set to 50 (implying 50%).
+
+<AddLocationForm>:
+	orientation: "vertical"
+	
+	BoxLayout: ## Row 1
+		height: "40dp"
+		size_hint_y: None
+		TextInput:
+			size_hint_x: 50
+		Button:
+			text: "Search"
+			size_hint_x: 25
+		Button:
+			text: "Current Location"
+			size_hint_x: 25
+	ScrollView: ## Row 2
+		height: "40dp"
+		size_hint_y: None
+		
+		BoxLayout:
+			height: "40dp"
+			size_hint_y: None
+			orientation: "vertical"
+			Label:
+				text: "Vancouver, CAN"
+				size_hint_y: 25
+			Label:
+				text: "Vancouver, USB"
+				size_hint_y: 25
+	BoxLayout: ## Row 3
+		TextInput:
+			size_hint_x: 50
+		Button:
+			size_hint_x: 25
+			text: "Search"
+		Button:
+			size_hint_x: 25
+			text: "Current Location"

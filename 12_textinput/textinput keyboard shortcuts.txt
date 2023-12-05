@@ -1,0 +1,20 @@
+K/b Shortcut    Description
+--------------------------------------------------------
+Left            Move cursor to left
+Right           Move cursor to right
+Up              Move cursor to up
+Down            Move cursor to down
+Home            Move cursor at the beginning of the line
+End             Move cursor at the end of the line
+PageUp          Move cursor to 3 lines before
+PageDown        Move cursor to 3 lines after
+Backspace       Delete the selection or character before the cursor
+Del             Delete the selection of character after the cursor
+Shift + <dir>   Start a text selection. Dir can be Up, Down, Left or
+                Right
+Control + c     Copy selection
+Control + x     Cut selection
+Control + v     Paste clipboard content
+Control + a     Select all the content
+Control + z     undo
+Control + r     redo

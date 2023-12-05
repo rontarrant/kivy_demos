@@ -1,0 +1,8 @@
+## s04_slider_get_value.kv
+## Incremental steps along a slider.
+
+<Slider>:
+	min: -100
+	max: 200
+	value: 0
+	on_touch_move: print("Value: ", self.value)

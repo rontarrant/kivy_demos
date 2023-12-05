@@ -1,0 +1,16 @@
+## Connecting multiple events in a command block.
+
+MyButton:
+
+<MyButton@Button>:
+	text: "Push Me, Baby"
+	on_release: print("Give it to me, baby!")
+	italic: True
+	font_size: 60
+	on_press:
+		self.font_size = 100
+		self.text = "You Pushed Me!"
+	on_release:
+		self.font_size = 60
+		self.text = "Push Me, Baby"
+

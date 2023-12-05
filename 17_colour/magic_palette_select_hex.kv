@@ -1,0 +1,147 @@
+#:import utils kivy.utils
+#:import clu colour_look_up
+
+<LLBoxLayout>:
+	id: mylayout
+	orientation: "vertical"
+	size_hint: None, None
+	width: '1000dp'
+	height: '432dp'
+
+	BoxLayout:
+		orientation: "horizontal"
+		size_hint: None, None
+		width: '1000dp'
+		height: '32dp'
+		
+		MySpinner:
+			id: base_spinner
+			text: "Select Base Colour"
+			size_hint_y: None
+			size_hint_x: None
+			width: 200
+			font_size: 16
+			color: utils.get_color_from_hex("FFFFFF")
+			values: clu.ColourLookUp
+			
+			on_text:
+				root.set_colours("base_spinner")
+		
+		Label:
+			id: mix_1_label
+			text: "Testing/Testing"
+			size_hint_x: None
+			width: 200
+			
+		Label:
+			id: average_label
+			text: "Testing/Testing"
+			size_hint_x: None
+			width: 200
+			
+		Label:
+			id: mix_2_label
+			text: "Testing/Testing"
+			size_hint_x: None
+			width: 200
+			
+		MySpinner:
+			id: mix_spinner
+			text: "Select Mix Colour"
+			size_hint_y: None
+			size_hint_x: None
+			width: 200
+			font_size: 16
+			color: utils.get_color_from_hex("FFFFFF")
+			values: clu.ColourLookUp
+
+			on_text:
+				root.set_colours("mix_spinner")
+	
+	BoxLayout:
+		orientation: "horizontal"
+		size_hint: None, None
+		width: '1000dp'
+		height: '400dp'
+		
+		ChipLabel:
+			id: base_colour
+			text: "Base Colour"
+			color: "888888"
+			background_color: "888888"
+
+			canvas.before:
+				Color:
+					rgba: utils.get_color_from_hex(self.background_color)
+				Rectangle:
+					pos: self.pos
+					size: (self.parent.width / 5, self.parent.height)
+
+		ChipLabel:
+			id: mix_one
+			text: "Mix 1"
+			color: "888888"
+			background_color: "888888"
+
+			canvas.before:
+				Color:
+					rgba: utils.get_color_from_hex(self.background_color)
+				Rectangle:
+					pos: self.pos
+					size: (self.parent.width / 5, self.parent.height)
+
+		ChipLabel:
+			id: average
+			text: "Average"
+			color: "888888"
+			background_color: "888888"
+
+			canvas.before:
+				Color:
+					rgba: utils.get_color_from_hex(self.background_color)
+				Rectangle:
+					pos: self.pos
+					size: (self.parent.width / 5, self.parent.height)
+
+		ChipLabel:
+			id: mix_two
+			text: "Mix 2"
+			color: "888888"
+			background_color: "888888"
+
+			canvas.before:
+				Color:
+					rgba: utils.get_color_from_hex(self.background_color)
+				Rectangle:
+					pos: self.pos
+					size: (self.parent.width / 5, self.parent.height)
+					
+		ChipLabel:
+			id: mix_colour
+			text: "Mix Colour"
+			color: "888888"
+			background_color: "888888"
+
+			canvas.before:
+				Color:
+					rgba: utils.get_color_from_hex(self.background_color)
+				Rectangle:
+					pos: self.pos
+					size: (self.parent.width / 5, self.parent.height)
+
+<ChipLabel@Label>:
+	size_hint_y: None
+	height: 400
+	size_hint_x: None
+	width: 200
+	font_size: 16
+	color: (0,0,0,1)
+
+<MySpinner@Spinner>:
+	size_hint_y: None
+	height: '32dp'
+	size_hint_x: None
+	width: 200
+	font_size: 16
+	color: (0,0,0,1)
+	

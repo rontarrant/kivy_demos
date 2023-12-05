@@ -1,0 +1,15 @@
+## Setting the background colour...
+## The background_normal property must be set to an empty string
+## or else the colour we set with background_color won't be accurate.
+
+MyButton:
+
+<MyButton@Button>:
+	text: "Push Me, Baby"
+	on_release: print("Give it to me, baby!")
+	italic: True
+	font_size: 60
+	color: [126/255, 45/255, 210/255, 1]
+	background_color: [130/255, 180/255, 10/255, 1]
+	background_normal: ""
+

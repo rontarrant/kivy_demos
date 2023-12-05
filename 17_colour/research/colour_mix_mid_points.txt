@@ -1,0 +1,12 @@
+Phthalo Green/Ultramarine Blue: 126871 (18, 104, 113)
+Ivory Black/Dioxazine Purple: 4D305E (077, 048, 094)
+Quinacradone Magenta/Phthalo Blue: 544F9F (084, 079, 159)
+Quinacradone Red/Phthalo Green: 354C5A (053, 076, 090)
+Quinacradone Red/Phthalo Blue: 6B347B (107, 052, 123)
+Cadmium Red Light/Yellow Green: 915F32 (145, 095, 050)
+Cadmium Red Light/Phthalo Green: 6C4F46 (108, 079, 070)
+Cadmium Red Light/Cobalt Teal: 7F6066 (127, 096, 102)
+Cadmium Red Light/Phthalo Blue: 5E4A55 (094, 074, 085)
+Cadmium Red Light/Ultramarine Blue: 745C74 (116, 092, 116)
+Phthalo Green/Ultramarine Blue: 9B525A (155, 082, 090)
+

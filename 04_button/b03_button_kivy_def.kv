@@ -1,0 +1,18 @@
+## basic button defined here instead of in the .py file
+## BEWARE
+## If the root rule is omitted, the script will run and no
+## error will be thrown, but the button won't appear.
+## Tricky stuff.
+## However, using both a root and class rule here effectively
+## moves the entire definition of MyButton out of the Python script.
+## But, it also means that MyButton is the one and only widget
+## in our app.
+
+MyButton:
+
+<MyButton@Button>:
+	text: "Push Me, Baby"
+	on_release: print("Give it to me, baby!")
+	italic: True
+
+

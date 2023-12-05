@@ -1,0 +1,21 @@
+<MyBoxLayout>:
+	orientation: "vertical"
+	spacing: 20
+	padding: 20
+	##size: root.width, root.height
+
+	Label:
+		id: my_label
+		text: "Here's a label"
+		font_size: 32
+		canvas.before:
+			Color:
+				rgba: 0, 0, 1, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+	Button:
+		id: my_button
+		text: "Next Label"
+		font_size: 32
+		on_release: root.release()

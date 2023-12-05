@@ -1,0 +1,76 @@
+## Reproduction of the start Screen for CMC
+## Placing the background image is the same
+## as in ly11_boxlayout_bg_image.kv, but
+## to get the foreground images (logos) to
+## align right, three properties must be set:
+##		size_hint_x: None
+##		width: '400dp'
+##		pos_hint: {'right': 1}
+
+<MyBoxLayout>: ## outer box - vertical
+	orientation: "vertical"
+	spacing: 10
+	padding: 40
+	pos_hint: {'right': 1}
+	size: root.width, root.height
+
+	canvas.before:
+		Rectangle:
+			size: self.size
+			source: "images/background01.png"
+	
+	Image:
+		size_hint_x: None
+		width: '400dp'
+		pos_hint: {'right': 1}
+		source: "images/logoLarge.png"
+
+		canvas.before:
+			Color:
+				rgba: .5, .5, .5, 1
+			## Line:
+			##	width: 2
+			##	rectangle: self.x, self.y, self.width, self.height
+		
+	Image:
+		size_hint_x: None
+		width: '273dp'
+		pos_hint: {'right': 1}
+		source: "images/productLarge.png"
+
+		canvas.before:
+			Color:
+				rgba: .5, .5, .5, 1
+			##Line:
+			##	width: 2
+			##	rectangle: self.x, self.y, self.width, self.height
+
+	GridLayout: ## top inner box - horizontal
+		rows: 2
+		size_hint_y: None
+		height: "128dp"
+		size_hint_x: None
+		width: "500dp"
+		pos_hint: {'right': 1}
+		
+		canvas.before:
+			Color:
+				rgba: .5, .5, .5, 1
+			## Line:
+			##	width: 2
+			##	rectangle: self.x, self.y, self.width, self.height
+	
+		Label:
+			text: ""
+		Button:
+			text: "???"
+			font_size: 32
+		Label:
+			text: ""
+		Label:
+			text: ""
+		Label:
+			text: ""
+		Button:
+			text: "START"
+			font_size: 32

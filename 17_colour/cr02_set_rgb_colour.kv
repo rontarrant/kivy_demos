@@ -1,0 +1,41 @@
+#:import wc web_safe_colours_rgb
+#:import utils kivy.utils
+
+<LLBoxLayout>:
+	orientation: "vertical"
+	size_hint: None, None
+	width: '200dp'
+	height: '72dp'
+
+	canvas.before:
+		Color:
+			rgba: wc.get_colour("Crimson")
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+	Label:
+		id: my_label
+		text: "Here's a label"
+		size_hint_y: None
+		height: self.parent.height / 2
+		size_hint_x: None
+		width: self.parent.width
+		font_size: 32
+
+		canvas.before:
+			Color:
+				rgba: .7, .7, .2, 1
+			Line:
+				width: 1
+				rectangle: self.x, self.y, self.width, self.height
+				
+	Button:
+		id: my_button
+		text: "Next Label"
+		font_size: 32
+		size_hint_y: None
+		height: self.parent.height / 2
+		size_hint_x: None
+		width: self.parent.width
+		on_release: root.release()

@@ -1,0 +1,19 @@
+<MyLabel>:
+	count: 0
+	
+	text: "Hello, Kivy World!"
+	color: (0.3, 0.7, 0.5, 1)
+
+	on_text: root.chain_on_text()
+	## These two lines add a pair of callbacks.
+	## Because count is a custom property,
+	## added in the .kv file, it doesn't
+	## automatically get an on_count() callback.
+	on_count: root.on_count()
+	on_count: root._on_chain_count()
+	on_count: root.callback03()
+	on_count: root.callback04()
+	on_count: root.callback05()
+	on_count: root.callback06()
+	on_count: root.callback07()
+	on_count: root.callback08()

@@ -1,0 +1,16 @@
+## Put an image in the background
+## This places a background image behind
+## everything else. The size:
+## property must be set so the image
+## will fill the screen.
+<MyBoxLayout>: ## outer box - vertical
+	orientation: "vertical"
+	spacing: 10
+	padding: 40
+	pos_hint: {'right': 1}
+	
+	canvas.before:
+		Rectangle:
+			size: self.size
+			source: "images/background01.png"
+

@@ -1,0 +1,171 @@
+TextInput Properties
+	allow_copy = BooleanProperty(True)
+	auto_indent = BooleanProperty(False)
+	background_active = StringProperty('extinput_active')
+	background_color = ColorProperty([1, 1, 1, 1])
+	background_disabled_normal = StringProperty('textinput_disabled')
+	background_normal = StringProperty('textinput.image')
+	base_direction = OptionProperty( None/'ltr'/'rtl'/'weak_rtl'/'weak_ltr')
+										bind = ('cursor', 'padding', 'pos',
+	border = ListProperty([4, 4, 4, 4])
+									cache = False)
+	cursor_blink = BooleanProperty(True)
+	cursor_color = ColorProperty([1, 0, 0, 1])
+   cursor_pos = AliasProperty(_get_cursor_pos, None,
+   cursor_row = AliasProperty(_get_cursor_row, None, bind = ('cursor', ))
+	cursor_width = NumericProperty('1sp')
+	disabled_foreground_color = ColorProperty([0, 0, 0, .5])
+	do_wrap = BooleanProperty(True)
+	font_context = StringProperty(None, allownone = True)
+	font_family = StringProperty(None, allownone = True)
+	font_name = StringProperty(DEFAULT_FONT)
+	font_size = NumericProperty('15sp')
+	foreground_color = ColorProperty([0, 0, 0, 1])
+	halign = OptionProperty('auto', options = ['left', 'center', 'right','auto'])
+	handle_image_middle = StringProperty('selector_middle')
+   hint_text_color = ColorProperty([0.5, 0.5, 0.5, 1.0])
+	input_filter = ObjectProperty(None, allownone = True)
+	line_height = NumericProperty(1)
+										'line_height', 'line_spacing'),
+	line_spacing = NumericProperty(0)
+	multiline = BooleanProperty(True)
+	padding = VariableListProperty([6, 6, 6, 6])
+	padding_x = VariableListProperty([0, 0], length = 2, deprecated = True)
+	padding_y = VariableListProperty([0, 0], length = 2, deprecated = True)
+	password = BooleanProperty(False)
+	password_mask = StringProperty('*')
+	readonly = BooleanProperty(False)
+	replace_crlf = BooleanProperty(True)
+	scroll_distance = NumericProperty(_scroll_distance)
+	scroll_from_swipe = BooleanProperty(not _is_desktop)
+	scroll_timeout = NumericProperty(_scroll_timeout)
+	scroll_x = NumericProperty(0)
+	scroll_y = NumericProperty(0)
+	selection_color = ColorProperty([0.1843, 0.6549, 0.8313, .5])
+                              'size', 'focus', 'scroll_x', 'scroll_y',
+	tab_width = NumericProperty(4)
+	text_language = StringProperty(None, allownone = True)
+	text_validate_unfocus = BooleanProperty(True)
+	use_bubble = BooleanProperty(not _is_desktop)use_handles = BooleanProperty(not _is_desktop)
+
+(inherited from Widget)
+	canvas = None
+	center = ReferenceListProperty(center_x, center_y)
+	center_x = AliasProperty(get_center_x, set_center_x, bind = ('x', 'width'), cache = True, watch_before_use = False)
+	center_y = AliasProperty(get_center_y, set_center_y, bind = ('y', 'height'), cache = True, watch_before_use = False)
+	children = ListProperty([])
+	cls = ListProperty([])
+	disabled = AliasProperty(get_disabled, set_disabled, watch_before_use = False)
+	height = NumericProperty(100)
+	ids = DictProperty({})
+	motion_filter = DictProperty()
+	opacity = NumericProperty(1.0)
+	parent = ObjectProperty(None, allownone = True, rebind = True)
+	pos = ReferenceListProperty(x, y)
+	pos_hint = ObjectProperty({})
+	right = AliasProperty(get_right, set_right, bind = ('x', 'width'), cache = True, watch_before_use = False)
+	size = ReferenceListProperty(width, height)
+	size_hint = ReferenceListProperty(size_hint_x, size_hint_y)
+	size_hint_max = NumericProperty(None, allownone = True)
+	size_hint_max_x = NumericProperty(None, allownone = True)
+	size_hint_max_y = NumericProperty(None, allownone = True)
+	size_hint_min = ReferenceListProperty(size_hint_min_x, size_hint_min_y)
+	size_hint_min_x = NumericProperty(None, allownone = True)
+	size_hint_min_y = NumericProperty(None, allownone = True)
+	size_hint_x = NumericProperty(1, allownone = True)
+	size_hint_y = NumericProperty(1, allownone = True)
+	top = AliasProperty(get_top, set_top, bind = ('y', 'height'), cache = True, watch_before_use = False)
+	width = NumericProperty(100)
+	x = NumericProperty(0)
+	y = NumericProperty(0)
+	
+TextInput Events
+	on_double_tap
+	on_quad_touch
+	on_text_validate
+	on_triple_tap
+(inherited from Widget)
+	on_kv_post
+	on_motion
+	on_touch_down
+	on_touch_move
+	on_touch_up
+
+TextInput Methods
+	cancel_long_touch_event(self):
+	cancel_selection(self):
+	copy(self, data=''):
+	cursor_index(self, cursor = None):
+	cursor_offset(self):
+	cut(self):
+	delete_selection(self, from_undo = False):
+	do_backspace(self, from_undo = False, mode='bkspc'):
+	do_redo(self):
+	do_undo(self):
+	get_cursor_from_index(self, index):
+	get_cursor_from_xy(self, x, y):
+	get_sel_from(self):
+	get_sel_to(self):
+	insert_text(self, substring, from_undo = False):
+	keyboard_on_key_down(self, window, keycode, text, modifiers):
+	keyboard_on_key_up(self, window, keycode):
+	keyboard_on_textinput(self, window, text):
+	long_touch(self, dt):
+	on__hint_text(self, instance, value):
+	on_cursor(self, instance, value):
+	on_cursor_blink(self, instance, value):
+	on_double_tap(self):
+	on_handle_image_left(self, instance, value):
+	on_handle_image_middle(self, instance, value):
+	on_handle_image_right(self, instance, value):
+	on_padding_x(self, instance, value):
+	on_padding_y(self, instance, value):
+	on_quad_touch(self):
+	on_selection_text(self, instance, value):
+	on_size(self, instance, value):
+	on_text_validate(self):
+	on_touch_down(self, touch):
+	on_touch_move(self, touch):
+	on_touch_up(self, touch):
+	on_triple_tap(self):
+	paste(self):
+	pgmove_speed(self):
+	reset_undo(self):
+	scroll_text_from_swipe(self, touch):
+	select_all(self):
+	select_text(self, start, end):
+	window_on_textedit(self, window, ime_input):
+(inherited from Widget)
+	add_widget(self, widget, index = 0, canvas = None)
+	clear_widgets(self, children = None)
+	dec_disabled(self, count = 1)
+	export_as_image(self, *args, **kwargs)
+	export_to_png(self, filename, *args, **kwargs)
+	get_center_x(self)
+	get_center_y(self)
+	get_disabled(self)
+	get_parent_window(self)
+	get_right(self)
+	get_root_window(self)
+	get_top(self)
+	get_window_matrix(self, x = 0, y = 0)
+	inc_disabled(self, count = 1)
+	on_kv_post(self, base_widget)
+	on_motion(self, etype, motion_event)
+	on_opacity(self, instance, value)
+	on_touch_down(self, touch)
+	on_touch_move(self, touch)
+	on_touch_up(self, touch)
+	remove_widget(self, widget)
+	set_center_x(self, value)
+	set_center_y(self, value)
+	set_disabled(self, value)
+	set_right(self, value)
+	set_top(self, value)
+	to_local(self, x, y, relative = False)
+	to_parent(self, x, y, relative = False)
+	to_widget(self, x, y, relative = False)
+	to_window(self, x, y, initial = True, relative = False)
+	walk(self, restrict = False, lookback = False)
+	walk_reverse(self, loopback = False)
+

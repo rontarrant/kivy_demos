@@ -1,0 +1,9 @@
+## t01_toggle_basic.kv
+
+<ToggleButton>:
+	text: 'Not Engaged'
+	font_size: sp(80)
+	state: 'normal'
+	on_state: self.text = 'Not Engaged' if self.state == 'normal' else 'Engaged!'
+	on_state: self.bold = False if self.state == 'normal' else True
+	on_state: self.font_size = 80 if self.state == 'normal' else 150

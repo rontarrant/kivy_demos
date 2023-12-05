@@ -1,0 +1,106 @@
+#:import utils kivy.utils
+
+<LLBoxLayout>:
+	id: mylayout
+	orientation: "horizontal"
+	size_hint: None, None
+	width: '1000dp'
+	height: '400dp'
+
+	MyButton:
+		id: base_colour
+		text: "Cadmium Yellow Light"
+		size_hint_y: None
+		size_hint_x: None
+		width: 200
+		font_size: 16
+		on_release:
+			root.set_colours()
+
+		background_color: utils.get_color_from_hex("FEFE00")
+		background_normal: ""
+
+	MyLabel:
+		id: mix_one
+		text: "Mix 1"
+		size_hint_y: None
+		height: self.parent.height
+		size_hint_x: None
+		width: 200
+		font_size: 16
+		background_color: "FFEB04"
+
+		canvas.before:
+			Color:
+				rgba: utils.get_color_from_hex(self.background_color)
+			Rectangle:
+				pos: self.pos
+				size: (self.parent.width / 5, self.parent.height)
+
+	MyLabel:
+		id: average
+		text: "Average"
+		size_hint_y: None
+		height: self.parent.height
+		size_hint_x: None
+		width: 200
+		font_size: 16
+		background_color: "FFEB02"
+
+		canvas.before:
+			Color:
+				rgba: utils.get_color_from_hex(self.background_color)
+			Rectangle:
+				pos: self.pos
+				size: (self.parent.width / 5, self.parent.height)
+
+	MyLabel:
+		id: mix_two
+		text: "Mix 2"
+		size_hint_y: None
+		height: self.parent.height
+		size_hint_x: None
+		width: 200
+		font_size: 16
+		background_color: "FFEB01"
+
+		canvas.before:
+			Color:
+				rgba: utils.get_color_from_hex(self.background_color)
+			Rectangle:
+				pos: self.pos
+				size: (self.parent.width / 5, self.parent.height)
+
+	MyLabel:
+		id: mix_colour
+		text: "Cadmium Yellow Medium"
+		size_hint_y: None
+		height: self.parent.height
+		size_hint_x: None
+		width: 200
+		font_size: 16
+		background_color: "FFCE19"
+
+		canvas.before:
+			Color:
+				rgba: utils.get_color_from_hex(self.background_color)
+			Rectangle:
+				pos: self.pos
+				size: (self.parent.width / 5, self.parent.height)
+
+<MyLabel@Label>:
+	size_hint_y: None
+	height: self.parent.height
+	size_hint_x: None
+	width: 200
+	font_size: 16
+	color: (0,0,0,1)
+
+<MyButton@Button>:
+	size_hint_y: None
+	height: self.parent.height
+	size_hint_x: None
+	width: 200
+	font_size: 16
+	color: (0,0,0,1)
+	

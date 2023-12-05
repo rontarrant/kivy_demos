@@ -1,0 +1,10 @@
+<MyLabel>:
+	count: 0
+	
+	text: "Hello, Kivy World!"
+	color: (0.3, 0.7, 0.5, 1)
+	## The following line doesn't override
+	## the on_text callback. It adds a new
+	## callback into the chain.
+	on_text: root.chain_on_text()
+	on_count: root.get_count()
